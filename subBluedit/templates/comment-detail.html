@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/comment-for-comment.css' %}">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Ubuntu+Condensed" />
+{% endblock %}
+
+{% block title %}Comment{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="that-one-comment">
+            <p>
+                {{that_one_comment.text }}
+            </p>
+        </div>
+
+        <div class="head">
+            <h4>Do you have a comment for this Comment?</h4>
+        </div>
+
+        <div class="form-container">
+            <form method="POST">
+                {% csrf_token %}
+                {{ comment_form.as_p }}
+                <div class="button-con">
+                    <button type="submit" class="button">Add comment</button>
+                </div>
+            </form>
+        </div>
+        <div class="back-to-comments">
+            <a href="{% url 'post' pk_sub=that_one_comment.post.forum.id pk_post=that_one_comment.post.id %}" class="back-to-posts">Back to Post</a>
+        </div>
+    </div>
+
+
+
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/newSub.css' %}">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Ubuntu+Condensed" />
+{% endblock %}
+{% block title %}Create Sub{% endblock %}
+
+{% block content %}
+    <div id="wrapper">
+        <div id="title-container">
+            <h2 id="title">Create Your Own Sub</h2>
+        </div>
+        <div id="bluedit-icon-container">
+            <img src="/media/images/bluedit.png" alt="custom reddit icon" id="bluedit-icon">
+        </div>
+    </div>
+
+
+
+    <form method="post">
+    {% csrf_token %}
+        <div class="form-group">
+            <p>
+                <div id="label-container">
+                    <label for="name" id="label-name" hidden>Name</label>
+                </div>
+                <div id="name-container">
+                    <input class="form-control" id="name" name="name" autofocus="true" required="" type="text" placeholder="Name of your Sub!">
+                </div>
+                <div class="name-container-2">
+                    <input class="form-control_2" id="description" name="description" autofocus="" required="" type="text" placeholder="Description of your Sub!">
+                </div>
+                  <select name="type" class="select">
+                      <option value="F">Funny</option>
+                      <option value="N">NSFW</option>
+                      <option value="E">Educational</option>
+                      <option value="S">Sport</option>
+                      <option value="A">Art</option>
+                      <option value="">---</option>
+                      
+                  </select>
+                <div id="button-container">
+                    <button type="submit" id="submit-button">Create your own Sub!</button>
+                </div>
+
+            </p>
+        </div>
+
+  </form>
+{% endblock %}

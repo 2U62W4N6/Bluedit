@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/sign-up.css' %}">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Ubuntu+Condensed" />
+{% endblock %}
+{% block title %}Sign Up{% endblock %}
+{% block content %}
+
+    <div class="main-container">
+         <div class="container">
+            <img src="/media/images/bluedit.png" alt="bluedit-icon" class="icon">
+        </div>
+        <div class="clearfix"></div>
+        <h2>Sign up</h2>
+        <div class="form">
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Sign up</button>
+            </form>
+        </div>
+
+    </div>
+
+{% endblock %}

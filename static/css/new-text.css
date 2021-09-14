@@ -1,0 +1,136 @@
+*{
+    box-sizing: border-box;
+    font-family: "Ubuntu Condensed";
+    text-decoration: none;
+    color: black;
+}
+
+body {
+  padding: 0 16px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: powderblue
+    linear-gradient(to right, rgba(7, 27, 82, 1) 0%, rgba(0, 128, 128, 1) 100%);
+}
+
+.user{
+    color: #8FBAFF;
+    font-size: 140%;
+}
+
+
+.header{
+    margin: 0 auto 0 auto;
+    padding-top: 50px;
+    display: flex;
+    flex-direction: row;
+    font-size: 130%;
+    width: 650px;
+
+}
+
+.header a{
+    font-size: 130%;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+}
+.header a{
+    margin-left: 10px;
+    text-align: center;
+}
+a:hover{
+    color: white;
+}
+
+.right-side{
+    text-align: center;
+    float: left;
+    position: relative;
+    width: 25%;
+}
+
+.left-side{
+    float: left;
+    width: 75%;
+}
+
+
+button{
+  padding: 12px 30px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 3px solid #447e9b;
+    background: linear-gradient(45deg, #fff 50%, #447e9b 50%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: "Ubuntu Condensed";
+    font-size: 110%;
+    position: relative;
+    margin: 20px auto 0 auto;
+    /*top: 15px;
+    left: 35%;*/
+
+    /*margin: -70px 0 0 -170px;*/
+    color: #fff; /*For IE*/
+}
+
+button:after{
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(45deg, #447e9b 50%, transparent 50%);
+    z-index: -1;
+}
+
+button,
+button:after{
+    background-size: 300%;
+    background-position: 100%;
+    transition: 1s, font-size 0.2s;
+}
+
+button:hover,
+button:hover:after {
+    background-position: 0;
+    font-size: 1.1em;
+
+    color: #ffffff;
+}
+
+
+.container{
+    margin: 150px auto 0 auto;
+    max-width: 650px;
+}
+
+select{
+    width: 100px;
+    height: 45px;
+    font-size: 20px;
+}
+
+.input{
+    width: 150px;
+    height: 45px;
+    font-size: 20px;
+    float: left;
+}
+
+.textarea{
+    width: 150px;
+    height: 45px;
+    font-size: 20px;
+    resize: none;
+    float: left;
+    margin-left: 10px;
+    text-align: left;
+}
+
+.button-con{
+    margin-left: 105px;
+}

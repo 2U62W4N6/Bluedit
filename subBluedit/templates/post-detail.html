@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+{% load functions %}
+
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/post-detail.css' %}">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Ubuntu+Condensed" />
+{% endblock %}
+
+{% block title %}Post detail{% endblock %}
+
+{% block content %}
+
+{% isAuth request.user that_one_post.forum as flag %}
+
+{% if not flag == 0 %}
+    <div class="top">
+        <img class="bluedit-icon" src="/media/images/bluedit.png" alt="blue reddit">
+        <h2>Post detail</h2>
+    </div>
+    <div class="clearfix"></div>
+            <p class="main-title">Title: {{ that_one_post.title }}</p>
+            {% if not that_one_post.media == "" %}
+            <p><img class="post-img" src="{{ that_one_post.media }}" alt=""></p>
+            {% else %}
+            <p class="content">{{ that_one_post.text }}</p>
+            {% endif %}
+            <p>Author: <a class="author" href="{% url 'user-profile' pk=that_one_post.creator.id %}">u/{{ that_one_post.creator }}</a></p>
+            <p>Created: {{ that_one_post.created }}</p>
+            <p>Comments: {{ that_one_post.getCommentCount }}</p>
+        {% if flag > 1 or that_one_post.creator == request.user %}
+        <form method="POST">
+            {% csrf_token %}
+            <button type="submit"  name="delete-post" class="submit-button">Delete Post</button>
+        </form>
+        {% endif %}
+        {% if that_one_post.creator == request.user and that_one_post.media == ""%}
+        <p><a class="submit-button" href="{% url 'post-edit' that_one_post.forum.id that_one_post.id %}">Edit Post</a></p>
+        {% endif %}
+       
+        <h3>Comments</h3>
+
+       {% load mptt_tags %}
+        <ul>
+            <div class="comment-container">
+        {% recursetree comment_for_that_post %}
+            <li>
+                    <p>
+                        von <a href={% url 'user-profile' pk=node.creator.id %}>u/{{ node.creator }}</a> | {{ node.created }}
+                    </p>
+                <p>
+                    {{ node.text }}
+                </p>
+                    <p>
+                        <a href="{% url 'comment-vote' pk=node.id up_or_down=1 %}" style="color: darkgreen">
+                            <img class="up-arrow" src="{% static 'arrows/uparrow.png' %}" width="20" height="20">
+                        </a>
+                            <span class="votes">{{ node.votes }}</span>
+                        <a href="{% url 'comment-vote' pk=node.id up_or_down=0 %}"  style="color: crimson">
+                            <img class="down-arrow" src="{% static 'arrows/RedDownArrow.svg.png' %}" width="20" height="20">
+                        </a>
+                    </p>
+                    <p>
+                            {% if flag >= 1 %}
+                                <a class="edit-button" href="{{ request.path}}/{{ node.id}}">Comment</a>
+                                {% endif %}
+                                {% if node.creator == request.user or flag > 1 %}
+                                <form method="POST">
+                                    {% csrf_token %}
+                                    <button type="submit" value={{node.id}} name="delete" class="edit-button">Delete</button>
+                                </form>
+                                {% endif %}
+                                {% if node.creator == request.user %}
+                                <a class="edit-button" href="{{ request.path}}/{{ node.id}}/edit">Edit</a>
+                                {% endif %}
+                    </p>
+            </li>
+            {% if not node.is_leaf_node %}
+                <ul class="children">
+                    {{ children }}
+                </ul>
+            {% endif %}
+
+            {% endrecursetree %}
+            </div>
+        </ul>
+    {% if flag >= 1  %}
+    </div>
+
+        <h4>Do you have a comment for this Post?</h4>
+        <form method="POST">
+            {% csrf_token %}
+            {{ comment_form.as_p }}
+            <button type="submit"  name="comment" class="submit-button">Add comment</button>
+        </form>
+    {% else %}
+    Subscribe to Comment!
+    <br>
+    {% endif %}
+    <br>
+
+        <a href=".." class="back-to-posts">Back to all Posts</a>
+
+{% else %}
+        <div class="container">
+            <p class="banned">You are banned on this Sub!</p>
+            <p class="back-banned"><a href="{% url 'sub-list' %}">GO Back to Forum-List</a></p>
+        </div>
+    
+{% endif %}
+{% endblock %}

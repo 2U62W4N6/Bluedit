@@ -1,0 +1,109 @@
+*{
+    box-sizing: border-box;
+    font-family: "Ubuntu Condensed";
+    text-decoration: none;
+    color: black;
+}
+
+body {
+  margin: 0px auto 0px auto;
+  max-width: 650px;
+  padding: 0 16px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: powderblue
+    linear-gradient(to right, rgba(7, 27, 82, 1) 0%, rgba(0, 128, 128, 1) 100%);
+}
+
+h2{
+    font-size: 40px;
+}
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.bluedit-icon{
+    width: 100px;
+    height: auto;
+    float: right;
+}
+
+.top-container{
+    margin-top: 50px;
+}
+
+.submit-button{
+  padding: 12px 30px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 3px solid #447e9b;
+    background: linear-gradient(45deg, #fff 50%, #447e9b 50%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: "Ubuntu Condensed";
+    font-size: 110%;
+    position: relative;
+    margin: 20px auto 0 auto;
+    /*top: 15px;
+    left: 35%;*/
+
+    /*margin: -70px 0 0 -170px;*/
+    color: #fff; /*For IE*/
+}
+
+.submit-button:after{
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(45deg, #447e9b 50%, transparent 50%);
+    z-index: -1;
+}
+
+.submit-button,
+.submit-button:after{
+    background-size: 300%;
+    background-position: 100%;
+    transition: 1s, font-size 0.2s;
+}
+
+.submit-button:hover,
+.submit-button:hover:after{
+    background-position: 0;
+    font-size: 1.1em;
+
+    color: #ffffff; /*For IE*/
+}
+
+.title{
+ margin-bottom: 30px;
+    border-bottom: 1px solid #3875d7;
+    border-top: 1px solid #3875d7;
+    padding-bottom: 20px;
+    background-color: rgba(56,117,215, 0.1);
+}
+
+label{
+    font-size: 30px;
+}
+
+input{
+    height: 30px;
+    margin-bottom: 40px;
+    font-size: 20px;
+}
+
+.formfield{
+    vertical-align: top;
+}
+
+textarea{
+    font-size: 20px;
+    height: 80px;
+}
+

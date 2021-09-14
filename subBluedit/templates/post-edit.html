@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/edit-post.css' %}">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Ubuntu+Condensed" />
+{% endblock %}
+
+{% block title %}Edit Posts{% endblock %}
+
+{% block content %}
+
+    <div class="container">
+        <form method="POST">
+            {% csrf_token %}
+            <div class="edit">
+                <input name="text" value="{{ post.text }}">
+            </div>
+            <div class="button-con">
+                <button class="button" type="submit">Save</button>
+            </div>
+
+        </form>
+    </div>
+
+{% endblock %}

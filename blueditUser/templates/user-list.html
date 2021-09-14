@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/user-list.css' %}">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Ubuntu+Condensed" />
+{% endblock %}
+
+{% block title %}User list{% endblock %}
+
+{% block content %}
+<h2>User list</h2>
+<ul>
+    <div class="container">
+        {% for bluedit_user in users %}
+
+                <div class="b-user">
+                    <a href={% url 'user-profile' pk=bluedit_user.id %}>{{ bluedit_user.username }}</a>
+                    <img src="{{ bluedit_user.profilePicture.url }}" height="150" width="150">
+                </div>
+
+        {% endfor %}
+    </div>
+</ul>
+{% endblock %}

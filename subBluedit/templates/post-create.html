@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/post-create.css' %}">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Ubuntu+Condensed" />
+{% endblock %}
+
+{% block title %}Create Post{% endblock %}
+
+{% block content %}
+    <div class="top-container">
+
+        <div class="icon-container">
+            <img src="/media/images/bluedit.png" alt="custom reddit icon" class="bluedit-icon">
+        </div>
+    <h2>Create Post</h2>
+    </div>
+    <div class="clearfix"></div>
+<div class="formfield">
+  <form method="post">
+    {% csrf_token %}
+
+          {{ form.as_p }}
+
+
+      <div class="button-container">
+          <button type="submit" class="submit-button">Create</button>
+      </div>
+
+  </form>
+ </div>
+{% endblock %}

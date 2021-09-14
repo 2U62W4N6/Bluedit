@@ -1,0 +1,86 @@
+body{
+    font-family: "Ubuntu Condensed";
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 0 16px;
+
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: powderblue linear-gradient(to right, rgba(7, 27, 82, 1) 0%, rgba(0, 128, 128, 1) 100%);
+}
+
+img{
+    width: 50px;
+    height: auto;
+}
+
+
+.user{
+    color: #8FBAFF;
+    font-size: 140%;
+}
+
+
+.header{
+    margin: 0 auto 0 auto;
+    padding-top: 50px;
+    display: flex;
+    flex-direction: row;
+    font-size: 130%;
+    width: 650px;
+
+}
+
+.header a{
+    font-size: 130%;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+}
+.header a{
+    margin-left: 10px;
+    text-align: center;
+}
+a:hover{
+    color: white;
+}
+
+.right-side{
+    text-align: center;
+    float: left;
+    position: relative;
+    width: 25%;
+}
+
+.left-side{
+    float: left;
+    width: 75%;
+}
+
+
+.b-user a{
+    text-decoration: none;
+    color: black;
+    font-size: 15px;
+}
+
+.b-user a:hover{
+    color: white;
+}
+
+.b-user{
+    color: white;
+    font-size: 3rem;
+    text-align: center;
+    padding: 1rem;
+}
+
+.container{
+    height: 45vh;
+    margin: 3rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+

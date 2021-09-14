@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/forumList.css' %}">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Ubuntu+Condensed" />
+{% endblock %}
+
+{% block title %}Forum list{% endblock %}
+
+{% block content %}
+    <div class="container">
+         <div id="wrapper">
+            <div id="forum-title">
+                <h2>Sub List</h2>
+            </div>
+            <div id="bluedit-icon-container">
+                <img src="/media/images/bluedit.png" alt="custom reddit icon" id="bluedit-icon">
+            </div>
+        </div>
+
+        <form method="GET" action = "">
+            <div class="search-container">
+                <input type="text" name="search" placeholder="Search Sub" value ="{{ request.GET.search }}" class="search-bar">
+                <button type="submit" class="submit-button">Search</button>
+            </div>
+        </form>
+
+        <div id="button-container">
+            <button onclick="location.href='newSub/'" type="button">Create your own Sub!</button>
+        </div>
+            <ul>
+                {% for sub in all_subs %}
+                    <div class="sub-container">
+                        <a href="{{ sub.id }}/" class="sub">{{ sub.name }} </a>{% if not sub.type == "" %} - [{{ sub.get_type_display }}] {% endif %}
+                        <br>
+                        {% if not sub.description == "" %}
+                            <span> {{ sub.description }}</span>
+                        {% endif %}
+                        <br>
+                        <br>
+                        by <a href="{% url 'user-profile' pk=sub.owner.id %}">u/{{ sub.owner }}</a> | Follower: {{ sub.getAboCount }}
+                    </div>
+
+                    {% endfor %}
+                </ul>
+    </div>
+
+  
+
+
+
+
+{% endblock %}

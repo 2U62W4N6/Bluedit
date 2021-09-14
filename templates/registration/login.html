@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Ubuntu+Condensed" />
+{% endblock %}
+{% block title %}Login{% endblock %}
+{% block content %}
+
+    <form method="post" action="">
+    {% csrf_token %}
+            <div class="form-group">
+                <img id="bluedit-icon" src="/media/images/bluedit.png" alt="blue reddit">
+                <h2 id="login">Login</h2>
+            <p>
+                <label for="id_username" id="username"></label>
+                <input class="form-control" id="id_username" name="username" autofocus="true" required="" type="text" placeholder="Username">
+            </p>
+            <p>
+                <label for="id_password" id="password"></label>
+                <input class="form-control" id="id_password" name="password" autofocus="" required="" type="password" placeholder="Password">
+            </p>
+                <p>
+                    <button type="submit" class="submit-button">Login</button>
+                    <a href="{% url 'signup' %}" class="submit-button">Sign up</a>
+                </p>
+
+            </div>
+    </form>
+{% endblock %}

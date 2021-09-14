@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/new-text.css' %}">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Ubuntu+Condensed" />
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <form method="post">
+            {% csrf_token %}
+            <input class="input" type="text" name=title placeholder="Post Title">
+            <textarea class="textarea" name="text" placeholder="Write Something!"></textarea>
+            <div class="button-con">
+                <button type ="submit">Post</button>
+            </div>
+
+        </form>
+    </div>
+
+
+
+{% endblock %}

@@ -1,0 +1,176 @@
+body{
+    font-family: "Ubuntu Condensed";
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 0 16px;
+
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: powderblue linear-gradient(to right, rgba(7, 27, 82, 1) 0%, rgba(0, 128, 128, 1) 100%);
+}
+
+button{
+    width: 35%;
+    padding: 12px 30px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 3px solid #447e9b;
+    background: linear-gradient(45deg, #fff 50%, #447e9b 50%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: "Ubuntu Condensed";
+    position: relative;
+    /*top: 50vh;
+    left: 35%;*/
+    font-size: 120%;
+   /* margin: -70px 0 0 -170px;*/
+    color: #fff; /*For IE*/
+}
+
+button:after{
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(45deg, #447e9b 50%, transparent 50%);
+    z-index: -1;
+}
+
+
+button,
+button:after{
+    background-size: 300%;
+    background-position: 100%;
+    transition: 1s, font-size 0.2s;
+}
+
+button:hover,
+button:hover:after{
+    background-position: 0;
+    font-size: 1.1em;
+
+    color: #006080; /*For IE*/
+}
+
+#name{
+    border: 1px solid #cccccc;
+    padding: 16px;
+    width: 120%;
+    font-size: 110%;
+    font-family: "Ubuntu Condensed";
+}
+
+#label-name{
+    font-size: 150%;
+}
+
+#label-container{
+    float: left;
+    /*text-align: center;*/
+    /*padding-left: 26vh;*/
+}
+
+#name-container{
+    float: left;
+    /*text-align: center;*/
+    padding-left: 7vh;
+}
+
+.name-container-2{
+    height: 100px;
+}
+
+
+.form-group{
+    padding-top: 100px;
+    height: 500px;
+    text-align: center;
+}
+
+.form-control_2{
+    height: 47px;
+    font-family: "Ubuntu Condensed";
+    width: 250px;
+    font-size: 110%;
+    padding-left: 15px;
+    margin-left: 40px;
+}
+
+
+#button-container{
+    text-align: center;
+    margin-top: 40px;
+}
+
+#title-container{
+    float: left;
+    width: 280px;
+    font-size: 140%;
+}
+
+#bluedit-icon-container{
+    overflow: hidden;
+    text-align: right;
+    padding-bottom: 3px;
+}
+
+#bluedit-icon{
+    width: 28%;
+    height: 28%;
+}
+#wrapper{
+    width: auto;
+    padding-top: 5vh;
+}
+
+.user{
+    color: #8FBAFF;
+    font-size: 140%;
+}
+
+
+.header{
+    margin: 0 auto 0 auto;
+    padding-top: 50px;
+    display: flex;
+    flex-direction: row;
+    font-size: 130%;
+    width: 650px;
+
+}
+
+.header a{
+    font-size: 130%;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+}
+.header a{
+    margin-left: 10px;
+    text-align: center;
+}
+a:hover{
+    color: white;
+}
+
+.right-side{
+    text-align: center;
+    float: left;
+    position: relative;
+    width: 25%;
+}
+
+.left-side{
+    float: left;
+    width: 75%;
+}
+
+.select{
+    width: 100px;
+    height: 30px;
+}
+
+

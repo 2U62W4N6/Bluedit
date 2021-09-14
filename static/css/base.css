@@ -1,0 +1,17 @@
+.header{
+    display: flex;
+    flex-direction: row;
+    margin-top: 70px;
+    margin-bottom: 50px;
+    font-size: 130%;
+}
+
+.header a{
+    margin-left: 10px;
+    text-align: center;
+}
+
+a:hover{
+    color: white;
+}
+

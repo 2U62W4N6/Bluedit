@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/edit-comment.css' %}">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Ubuntu+Condensed" />
+{% endblock %}
+
+{% block title %}Comment{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <form method="post">{% csrf_token %}
+            <textarea class="textarea" name="text" value={{comment.text}}>{{comment.text}}</textarea>
+            <div class="button-con">
+                <button class="button" type="submit">Save</button>
+            </div>
+        </form>
+    </div>
+
+
+
+{{ comment.user.create }}
+{% endblock %}

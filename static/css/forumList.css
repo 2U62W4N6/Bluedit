@@ -1,0 +1,226 @@
+*{
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0px auto 150px auto;
+  font-family: "Ubuntu Condensed";
+  max-width: 650px;
+  padding: 0 16px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: powderblue
+    linear-gradient(to right, rgba(7, 27, 82, 1) 0%, rgba(0, 128, 128, 1) 100%);
+}
+
+a{
+  text-decoration: none;
+  color: black;
+}
+button {
+  /*width: 35%;*/
+  padding: 12px 30px;
+  border-radius: 10px;
+  cursor: pointer;
+  border: 3px solid #447e9b;
+  background: linear-gradient(45deg, #fff 50%, #447e9b 50%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: "Ubuntu Condensed";
+  position: relative;
+  margin: 0px auto 0px auto;
+  /*top: 50vh;
+    left: 35%;*/
+  font-size: 120%;
+  /* margin: -70px 0 0 -170px;*/
+  color: #fff; /*For IE*/
+}
+
+button:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(45deg, #447e9b 50%, transparent 50%);
+  z-index: -1;
+}
+
+button,
+button:after {
+  background-size: 300%;
+  background-position: 100%;
+  transition: 1s, font-size 0.2s;
+}
+
+button:hover,
+button:hover:after {
+  background-position: 0;
+  font-size: 1.1em;
+
+  color: #003040; /*For IE*/
+}
+
+.sub {
+  font-family: "Ubuntu Condensed";
+  text-decoration: none;
+  color: black;
+  font-size: 120%;
+  font-style: italic;
+  margin-right: 10px;
+    color: #8FBAFF;
+}
+
+span{
+  margin-right: 10px;
+}
+
+.sub:hover {
+  color: #ffffff;
+}
+
+#bluedit-icon {
+  width: 100px;
+  height: auto;
+}
+
+#bluedit-icon-container {
+  /*background-color: pink;*/
+  float: right;
+  text-align: right;
+}
+
+#forum-title {
+  /*background-color: deeppink;*/
+  float: left;
+  font-size: 150%;
+}
+
+#wrapper {
+  padding-top: 5vh;
+}
+
+.sub-container {
+  text-align: center;
+  background-color: pink;
+  margin-top: 20px;
+  font-size: 140%;
+    margin-bottom: 10px;
+    background-color: rgba(56,117,215, 0.1);
+    border-bottom: 1px solid #3875d7;
+    border-top: 1px solid #3875d7;
+}
+
+.sub-container a{
+    color: #8FBAFF;
+    font-style: italic;
+}
+
+#button-container {
+  text-align: center;
+  padding-top: 30px;
+}
+
+.search-bar{
+  font-family: 'Ubuntu Condensed';
+  font-size: 130%;
+  width: 200px;
+  height: 50px;
+}
+
+.submit-button{
+  padding: 12px 30px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 3px solid #447e9b;
+    background: linear-gradient(45deg, #fff 50%, #447e9b 50%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: "Ubuntu Condensed";
+
+    position: relative;
+    margin: 20px auto 0 auto;
+    /*top: 15px;
+    left: 35%;*/
+
+    /*margin: -70px 0 0 -170px;*/
+    color: #fff; /*For IE*/
+}
+
+.submit-button:after{
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(45deg, #447e9b 50%, transparent 50%);
+    z-index: -1;
+}
+
+.submit-button,
+.submit-button:after{
+    background-size: 300%;
+    background-position: 100%;
+    transition: 1s, font-size 0.2s;
+}
+
+.submit-button:hover,
+.submit-button:hover:after{
+    background-position: 0;
+    font-size: 1.1em;
+
+    color: #ffffff; /*For IE*/
+}
+
+.search-container{
+  text-align: center;
+}
+
+.user{
+    color: #8FBAFF;
+    font-size: 140%;
+}
+
+
+.header{
+    margin: 0 auto 0 auto;
+    padding-top: 50px;
+    display: flex;
+    flex-direction: row;
+    font-size: 130%;
+    width: 650px;
+
+}
+
+.header a{
+    font-size: 130%;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+}
+.header a{
+    margin-left: 10px;
+    text-align: center;
+}
+a:hover{
+    color: white;
+}
+
+.right-side{
+    text-align: center;
+    float: left;
+    position: relative;
+    width: 25%;
+}
+
+.left-side{
+    float: left;
+    width: 75%;
+}
+
+.container{
+    margin-top: 30px;
+}

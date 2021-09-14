@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/edit-abo.css' %}">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Ubuntu+Condensed" />
+{% endblock %}
+{% load functions %}
+
+{% block title %}Edit Abos{% endblock %}
+
+{% block content %}
+{% isAuth request.user forum as setter %}
+        <div class="container">
+            <form method="POST">
+                {% csrf_token %}
+                <select name="user">
+                    {% for user in queryset %}
+                    {% isAuth user.user forum as object %}
+                    {% if setter > object %}
+                    <option value="{{ user.user }}">{{ user.user }}</option>
+                    {% endif %}
+                    {% endfor %}
+                  </select>
+
+                  <select name="type">
+                    {% if setter > 3 %}
+                    <option value="A">Admin</option>
+                    {% endif %}
+                    <option value="S">Supervisor</option>
+                    <option value="N">Normal</option>
+                    <option value="B">Ban</option>
+                  </select>
+                  <button class="button" type="submit">Save</button>
+            </form>
+        </div>
+
+
+
+{% endblock %}

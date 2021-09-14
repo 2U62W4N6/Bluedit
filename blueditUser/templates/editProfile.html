@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/edit-profile.css' %}">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Ubuntu+Condensed" />
+{% endblock %}
+{% block title %}Edit User{% endblock %}
+
+
+{% block content %}
+    <div class="container">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form">
+                {{ form.as_p }}
+            </div>
+
+            <div class="button-con">
+                <button class="button" type="submit">Save</button>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}

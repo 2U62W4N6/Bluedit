@@ -1,0 +1,277 @@
+*{
+    box-sizing: border-box;
+    font-family: "Ubuntu Condensed";
+    text-decoration: none;
+    color: black;
+}
+
+body {
+  margin: 0px auto 0px auto;
+  max-width: 650px;
+  padding: 0 16px;
+  display: flex;
+  /*flex-direction: column;*/
+  min-height: 100vh;
+  background: powderblue
+    linear-gradient(to right, rgba(7, 27, 82, 1) 0%, rgba(0, 128, 128, 1) 100%);
+}
+.select{
+    margin-bottom: 25px;
+}
+
+.profile a:hover{
+    color: white;
+}
+
+.user{
+    color: #8FBAFF;
+    font-size: 140%;
+}
+
+
+.header{
+    display: flex;
+    flex-direction: row;
+    margin-top: 70px;
+    margin-bottom: 50px;
+    font-size: 130%;
+}
+
+.header a{
+    margin-left: 10px;
+    text-align: center;
+}
+
+
+
+.header a:hover{
+    color: white;
+}
+
+
+.right-side{
+    margin-left: 170px;
+    text-align: center;
+}
+
+
+.profile{
+    width: 25%;
+    float: left; /*margin-left: 140px;*/
+}
+
+.feed{
+    float: left;
+    position: relative;
+    text-align: center;
+    width: 75%;
+    padding-right: 30px;
+}
+
+
+
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.abos, .comments, .posts{
+    font-size: 140%;
+    margin-bottom: 10px;
+    background-color: rgba(56,117,215, 0.1);
+    border-bottom: 1px solid #3875d7;
+    border-top: 1px solid #3875d7;
+    padding-bottom: 2px;
+    padding-top: 2px;
+}
+
+.post-content{
+    padding: 5px 5px 5px 5px;
+    font-size: 110%;
+    width: 90%;
+    margin: 0 auto 0 auto;
+}
+
+.post{
+    margin-bottom: 20px;
+    background-color: rgba(89,255,240, 0.1);
+    border-bottom: 1px solid #3875d7;
+    border-top: 1px solid #3875d7;
+    padding-bottom: 8px;
+    padding-top: 8px;
+}
+
+.post a{
+    font-style: italic;
+    margin-right: 5px;
+    margin-left: 5px;
+    color: #8FBAFF;
+}
+
+.up-arrow{
+    margin-left: 15px;
+}
+
+.comment-content{
+    padding: 5px 5px 5px 5px;
+    font-size: 110%;
+    width: 80%;
+    margin: 0 auto 0 auto;
+}
+
+.comment{
+    margin-bottom: 20px;
+    background-color: rgba(89,255,240, 0.1);
+    border-bottom: 1px solid #3875d7;
+    border-top: 1px solid #3875d7;
+    padding-bottom: 8px;
+    padding-top: 8px;
+}
+
+.comment a{
+    font-style: italic;
+    margin-right: 5px;
+    margin-left: 5px;
+    color: #8FBAFF;
+}
+
+.comment a:hover{
+    color: white;
+}
+
+.edit-profile {
+  /*width: 35%;*/
+  padding: 3px 7px;
+  border-radius: 10px;
+  cursor: pointer;
+  border: 2px solid #8FBAFF;
+  background: linear-gradient(45deg, #fff 50%, #8FBAFF 50%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: "Ubuntu Condensed";
+  position: relative;
+  /*top: 50vh;
+    left: 35%;*/
+  font-size: 120%;
+  /* margin: -70px 0 0 -170px;*/
+  color: #fff; /*For IE*/
+}
+
+.edit-profile:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(45deg, #447e9b 50%, transparent 50%);
+  z-index: -1;
+}
+
+.edit-profile,
+.edit-profile:after {
+  background-size: 300%;
+  background-position: 100%;
+  transition: 1s, font-size 0.2s;
+}
+
+.edit-profile:hover,
+.edit-profile:hover:after {
+  background-position: 0;
+  font-size: 1.1em;
+
+  color: #003040; /*For IE*/
+}
+
+.post-img{
+    width: 75px;
+    height: auto;
+    margin-top: 20px;
+}
+
+.user{
+    color: #8FBAFF;
+    font-size: 140%;
+}
+
+
+.header{
+    margin: 0 auto 0 auto;
+    padding-top: 50px;
+    display: flex;
+    flex-direction: row;
+    font-size: 130%;
+    width: 650px;
+
+}
+
+.header a{
+    font-size: 130%;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+}
+.header a{
+    margin-left: 10px;
+    text-align: center;
+}
+a:hover{
+    color: white;
+}
+
+.right-side{
+    text-align: center;
+    float: left;
+    position: relative;
+    width: 30%;
+}
+
+.left-side{
+    float: left;
+    width: 70%;
+}
+.header{
+    position: absolute;
+}
+
+.container{
+    margin-top: 200px;
+    width: 650px;
+}
+
+.user-img{
+    border-radius: 50px;
+    width: 100px;
+    height: auto;
+}
+
+.user-profile{
+    background-color: rgba(89,255,240, 0.1);
+    border-bottom: 1px solid #3875d7;
+    border-top: 1px solid #3875d7;
+    padding-bottom: 8px;
+    padding-top: 8px;
+}
+
+.sub-con{
+    margin-top: 30px;
+    background-color: rgba(89,255,240, 0.1);
+    border-bottom: 1px solid #3875d7;
+    border-top: 1px solid #3875d7;
+    padding-bottom: 8px;
+    padding-top: 8px;
+}
+
+.sub-con a{
+    color: #8FBAFF;
+}
+
+.profile{
+    text-align: center;
+}
+
+.post-img{
+    width: 200px;
+    height: auto;
+}

@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load functions %}
+
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/post-list.css' %}">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Ubuntu+Condensed" />
+{% endblock %}
+
+
+{% block title %}Forum Posts{% endblock %}
+
+{% block h1 %}Welcome to Bluedit!{% endblock %}
+
+{% block content %}
+
+{% isAuth request.user forum as flag %}
+
+{% if not flag == 0 %}
+
+    <div class="form-container">
+    <div class="icon-container">
+        <img src="/media/images/bluedit.png" alt="bluedit icon">
+    </div>
+        <div class="head">
+            <p class="title">Name: {{ forum.name }}</p>
+
+            <p>Description: {{ forum.description }}</p>
+            <p>Owner: <a class="author" href="{% url 'user-profile' pk=forum.owner.id %}">u/{{ forum.owner }}</a></p>
+
+            <p>Created: {{ forum.created }}</p>
+        </div>
+
+
+    <div class="clearfix"></div>
+        <form method="GET" action = "">
+            <div class="search-container">
+                <input class="search-bar" type="text" name="search" placeholder="Search Sub" value ="{{ request.GET.search }}">
+                <button type="submit" class="submit-button">Search</button>
+            </div>
+        </form>
+
+
+    <!-- {{ flag }} -->
+    <div class="ul-container">
+            <div class="buttons">
+                {% if flag == 4 %}
+                <form method="POST">
+                    {% csrf_token %}
+                    <button type="submit" class="submit-button">DELETE SUB</button>
+                </form>
+                {% endif %}
+                {% if flag >= 3 %}
+                <a class="submit-button" class="button-click" href="{% url 'editAbo' forum.id %}">EDIT ABO</a>
+                {% endif %}
+                {% if flag > 0  %}
+                <a class="submit-button" class="button-click" href="{% url 'post-create-text' forum.id %}">Post Text</a>
+                <a class="submit-button" class="button-click" href="{% url 'post-create-media' forum.id %}">Post Media</a>
+                {% endif %}
+                {% if flag < 4 and flag > 0 %}
+                <a class="submit-button" class="button-click" href="{% url 'unfollow' forum.id %}">UNFOLLOW</a>
+                {% endif %}
+                {% if flag == -1 %}
+                <a class="submit-button" class="button-click" href="{% url 'follow' forum.id %}">FOLLOW</a>
+                {% endif %}
+            </div>
+        <div class="clearfix"></div>
+
+        <ul>
+                {% for post in allPost %}
+                    <div class="post-list">
+                     <li >
+                        <a class="post" href="{{ request.path }}posts/{{ post.id }}">{{ post.title }}</a>
+                     </li>
+                     <p>
+                            {% if post.media == "" %}
+                         {{ post.text|truncatewords:50 }}
+                         {% else %}
+                         <img class="post-img" src="{{ post.media }}" width="300" height="300">
+                         {% endif %}
+                         <br>
+                        by <a class="author" href="{% url 'user-profile' pk=post.creator.id %}">u/{{ post.creator }}</a> {% if flag == 4 %} - [Owner] {% elif flag == 2 or flag == 3 %} - [Admin/Supervisor] {% endif %} | {{  post.created}}
+                    </p>
+                     <p>
+                        <a  href="{% url 'post-vote' pk=post.id up_or_down=1 %}">
+                                <img class="up-arrow" src="{% static 'arrows/uparrow.png' %}">
+                        </a>
+                            <span>{{ post.votes }}</span>
+                        <a href="{% url 'post-vote' pk=post.id up_or_down=0 %}" style="color: crimson">
+                            <img class="down-arrow" src="{% static 'arrows/RedDownArrow.svg.png' %}" alt="" class="down-arrow">
+                        </a>
+                        Comments: {{ post.getCommentCount }}
+                    </p>
+                    </div>
+                {% endfor %}
+        </ul>
+    </div>
+{% else %}
+    <div class="container">
+        <p class="banned">You are banned on this Sub!</p>
+        <p class="back-banned"><a href="{% url 'sub-list' %}">GO Back to Forum-List</a></p>
+    </div>
+
+{% endif %}
+{% endblock %}

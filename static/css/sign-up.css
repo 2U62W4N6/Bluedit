@@ -1,0 +1,118 @@
+*{
+    box-sizing: border-box;
+    font-family: "Ubuntu Condensed";
+}
+
+h2{
+    font-size: 200%;
+    margin-bottom: 100px;
+    margin-top: 100px;
+}
+
+body{
+    /*margin: 150px auto 0 auto;*/
+    flex-direction: column;
+    min-height: 50vh;
+    background: powderblue linear-gradient(to right, rgba(7, 27, 82, 1) 0%, rgba(0, 128, 128, 1) 100%);
+}
+
+label{
+    color: #447e9b;
+    font-size: 130%;
+}
+
+
+button{
+    font-size: 120%;
+    padding: 12px 30px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 3px solid #447e9b;
+    background: linear-gradient(45deg, #fff 50%, #447e9b 50%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: "Ubuntu Condensed";
+    position: relative;
+    margin: 20px auto 0 auto;
+    /*top: 15px;
+    left: 35%;*/
+
+    /*margin: -70px 0 0 -170px;*/
+    color: #fff; /*For IE*/
+}
+
+button:after{
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(45deg, #447e9b 50%, transparent 50%);
+    z-index: -1;
+}
+
+button,
+button:after{
+    background-size: 300%;
+    background-position: 100%;
+    transition: 1s, font-size 0.2s;
+}
+
+button:hover,
+button:hover:after{
+    background-position: 0;
+    font-size: 1.1em;
+
+    color: #ffffff; /*For IE*/
+}
+
+ul{
+    display: none;
+}
+
+.icon{
+    width: 100px;
+    height: auto;
+}
+
+.container{
+    position: absolute;
+    top: 50px;
+    right: 50px;
+
+}
+
+p{
+    font-size: 120%;
+    margin-bottom: 50px;
+}
+
+.main-container{
+    width: 600px;
+    margin: 60px auto 0 auto;
+    position: relative;
+}
+
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+input{
+    height: 25px;
+    width: 150px;
+    float: right;
+    margin-right: 120px;
+}
+
+
+.helptext{
+    display: none;
+}
+
+.form{
+    text-align: center;
+}
+

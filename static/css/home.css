@@ -1,0 +1,104 @@
+*{
+    box-sizing: border-box;
+    font-family: "Ubuntu Condensed";
+    text-decoration: none;
+    color: black;
+}
+
+body {
+  padding: 0 16px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: powderblue
+    linear-gradient(to right, rgba(7, 27, 82, 1) 0%, rgba(0, 128, 128, 1) 100%);
+}
+
+img{
+    width: 100px;
+    height: auto;
+}
+
+.main-content{
+    max-width: 650px;
+    margin: 0 auto 0 auto;
+}
+
+.login-out{
+    margin-top: 400px;
+    text-align: center;
+}
+
+.icon-container img{
+    position: absolute;
+    top: 75px;
+    right: 350px;
+}
+
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.not-logged-in{
+    font-size: 50px;
+}
+
+a:hover{
+    color: white;
+}
+
+a{
+    color: #8FBAFF;
+    font-size: 30px;
+}
+
+.login{
+    margin-right: 30px;
+}
+
+.user{
+    color: #8FBAFF;
+    font-size: 140%;
+}
+
+
+.header{
+    margin: 0 auto 0 auto;
+    padding-top: 50px;
+    display: flex;
+    flex-direction: row;
+    font-size: 130%;
+    width: 650px;
+
+}
+
+.header a{
+    font-size: 130%;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+}
+.header a{
+    margin-left: 10px;
+    text-align: center;
+}
+a:hover{
+    color: white;
+}
+
+.right-side{
+    text-align: center;
+    float: left;
+    position: relative;
+    width: 25%;
+}
+
+.left-side{
+    float: left;
+    width: 75%;
+}
+
+
+

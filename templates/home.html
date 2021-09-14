@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Ubuntu+Condensed" />
+{% endblock %}
+{% block title %}Home{% endblock %}
+{% block content %}
+
+    
+
+    <div class="main-content">
+         <div class="icon-container">
+            <img src="/media/images/bluedit.png" alt="bluedit icon" class="icon">
+        </div>
+        <div class="clearfix"></div>
+        <div class="login-out">
+            {% if not user.is_authenticated %}<p class="not-logged-in">You are not logged in</p>
+                <a href="{% url 'login' %}" class="login">Log in</a>
+                <a href="{% url 'signup' %}" class="signup">Sign up</a>
+            {% endif %}
+        </div>
+
+    </div>
+
+{% endblock %}

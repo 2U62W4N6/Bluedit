@@ -1,0 +1,137 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/edit-profile.css' %}">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Ubuntu+Condensed" />
+{% endblock %}
+
+{% block title %}Home Feed{% endblock %}
+
+
+{% block content %}
+
+    <div class="container">
+
+            <div class="feed">
+                    <div class="abos">
+                        <p>Users Feed</p>
+                    </div>
+                <div class="post-content">
+
+                        {% for post in allAboPosts %}
+                            <p class="post">
+                                 <a href={% url 'post' pk_sub=post.forum.id pk_post=post.id %}> {{post.title}}</a>
+                                 <br> by <a href="{% url 'user-profile' pk=post.creator.id %}">u/{{ post.creator}}</a>
+                                in <a href={% url 'sub' pk=post.forum.id %}>b/{{post.forum.name}}</a><br>
+                                {% if not post.media == "" %}
+                                <img class="post-img" src="{{ post.media }}" alt="" width="200", height="200"><br>
+                                {% else %}
+                                {{ post.text|truncatewords:30}}<br>
+                                {% endif %}   
+                                <br>
+                                <a  href="{% url 'post-vote' pk=post.id up_or_down=1 %}">
+                            <img class="up-arrow" src="{% static 'arrows/uparrow.png' %}" width="15" height="15">
+                                </a>
+                                    <span>{{ post.votes }}</span>
+                                <a href="{% url 'post-vote' pk=post.id up_or_down=0 %}" style="color: crimson">
+                                    <img class="down-arrow" src="{% static 'arrows/RedDownArrow.svg.png' %}" alt="" class="down-arrow" width="15" height="15">
+                                </a>
+                                Comments: {{ post.getCommentCount }}
+                            </p>
+                    {% endfor %}
+                </div>
+
+                    <div class="posts">
+                        <p>Users Posts</p>
+                    </div>
+
+
+                    {% for post in posts %}
+                        <p class="post">
+                            <a href={% url 'post' pk_sub=post.forum.id pk_post=post.id %}> {{post.title}}</a><br>
+                                in <a href={% url 'sub' pk=post.forum.id %}>b/{{post.forum.name}}</a> <br>
+                                {% if not post.media == "" %}
+                                <img class="post-img" src="{{ post.media }}" alt=""><br>
+                                {% else %}
+                                {{ post.text|truncatewords:30}}<br>
+                                {% endif %}
+                                <br>
+                               
+                                <br>
+                                <a  href={% url 'post-vote' pk=post.id up_or_down=1 %}>
+                                    <img class="up-arrow" src="{% static 'arrows/uparrow.png' %}" width="15" height="15">
+                                </a>
+                                <span>{{ post.votes }}</span>
+                                <a href={% url 'post-vote' pk=post.id up_or_down=0 %}>
+                                <img class="down-arrow" src="{% static 'arrows/RedDownArrow.svg.png' %}" alt="" class="down-arrow" width="15" height="15">
+                                </a>
+                                Comments: {{ post.getCommentCount }}
+                                <br>
+                        </p>
+
+                    {% endfor %}
+                    <div class="comments">
+                        <p>Users Comments</p>
+                    </div>
+
+                    <div class="comment-content">
+                        {% for comment in comments %}
+                            <p class="comment">
+                                <a href={% url 'post' pk_sub=comment.post.forum.id pk_post=comment.post.id %}> {{comment.post.title}}</a><br>
+                                in <a href={% url 'sub' pk=comment.post.forum.id %}>b/{{comment.post.forum.name}}</a><br>
+                                    {{comment.text}} <br> <br>
+                                    <a class="up-arrow" href={% url 'comment-vote' pk=comment.id up_or_down=1 %}>
+                                        <img class="up-arrow" src="{% static 'arrows/uparrow.png' %}" width="15" height="15">
+                                    </a>
+                                    <span>{{ comment.votes }}</span>
+                                    <a href={% url 'comment-vote' pk=comment.id up_or_down=0 %}>
+                                    <img class="down-arrow" src="{% static 'arrows/RedDownArrow.svg.png' %}" alt="" class="down-arrow" width="15" height="15">
+                                    </a>
+                            </p>
+
+
+                            {% endfor %}
+                    </div>
+
+            </div>
+             <div class="profile">
+             <div class="user-profile">
+                 <h3>Profile</h3>
+                        <p>Name: {{ user }}</p>
+                        <p><img class="user-img" src="{{ user.profilePicture.url }}"></p>
+                        <p>Created: {{user.create}}</p>
+                        <p>Bio: {{user.bio}}</p>
+                        <p>Post Votes: {{ user.post_votes}}</p>
+                        <p>Comment Votes: {{ user.comment_votes}}</p>
+             </div>
+                        <div class="sub-con">
+                            <h3>Subs:</h3>
+                        <p>Owner:
+                        <p>
+                            {% for sub in ownSubs %}
+                                <a href={% url 'sub' pk=sub.forum.id %}>- b/{{ sub.forum.name }}</a>
+                            {% endfor %}
+                          </p></p>
+                        <p>
+                             Moderator:
+                        <p>
+                            {% for sub in modSubs %}
+                                <a href={% url 'sub' pk=sub.forum.id %}>- b/{{ sub.forum.name }}</a>
+                            {% endfor %}
+                        </p>
+                        </p>
+                        <p>Abos:
+                          <p>
+                              {% for sub in otherSubs %}
+                                  <a href={% url 'sub' pk=sub.forum.id %}>- b/{{ sub.forum.name }}</a>
+                              {% endfor %}
+                            </p>
+                        </div>
+                        </div>
+
+                    </div>
+    </div>
+
+
+
+{% endblock %}

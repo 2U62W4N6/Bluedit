@@ -1,0 +1,24 @@
+{% extends 'home.html' %}
+
+{% block title %}My Search forum{% endblock %}
+
+{% block content %}
+<h2>My Search forum</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Search</button>
+    </form>
+    <br>
+    <br>
+
+    {% if show_results %}
+        <b>Foren found:</b><br>
+        <ul>
+        {% for forum in foren_found %}
+            <a href="{{ forum.id }}/"><br>{{ forum.get_full_title }}</br></a><br>
+            <br>
+        {% endfor %}
+        </ul>
+    {% endif %}
+{% endblock %}
